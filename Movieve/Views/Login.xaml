@@ -1,0 +1,39 @@
+﻿<Window x:Class="Movieve.Views.Login"
+        x:Name="LoginPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Movieve.Views"
+        mc:Ignorable="d" Title="Login" Height="800" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Grid>
+        <Border x:Name="panelBorder" Background="Black" Opacity="0.7" Margin="297,226,283,215" CornerRadius="15" BorderThickness="2">
+            <Grid>
+                <Image Source="ImageFiles\account.png" Margin="46,69,510,186"/>
+                <Image Source="ImageFiles\password.png" Margin="46,163,510,100"/>
+                <TextBox Name="UsernameEmailTextBox" Foreground="White" MaxLength="20" Text="{Binding Username}" Margin="135,69,180,199" FontSize="25" TextWrapping="Wrap"></TextBox>
+                <TextBox Name="PasswordBoxx" MaxLength="16" Text="{Binding Password}" Foreground="White" Margin="135,171,180,107" FontSize="25"></TextBox>
+                <Button  Command="{Binding LoginCommand}" 
+                CommandParameter="{Binding ElementName=LoginPanel}"  Name="LoginBtn" Content="Log In" Foreground="White" Margin="46,244,418,42" Height="Auto">
+                </Button>
+                <Button Command="{Binding GuestCommand}" CommandParameter="{Binding ElementName=LoginPanel}"  Name="GuestBtn" Content="I am Guest" Foreground="White" Margin="350,244,114,42" Height="Auto"></Button>
+            </Grid>
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+                                Storyboard.TargetName="panelBorder"
+                                Storyboard.TargetProperty="Width"
+                                From="0"
+                                To="600"
+                                Duration="0:0:2">
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+        </Border>
+    </Grid>
+</Window>
